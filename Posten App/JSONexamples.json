@@ -1,0 +1,24 @@
+{
+  "info":"Sample Packages",
+  "packages": 
+  [
+    {
+      "description": "Snow globe",
+      "dimensions": [
+        100,
+        100,
+        120
+      ],
+      "weight": 870
+    },
+    {
+      "description": "MTG card",
+      "dimensions": [
+        89,
+        64,
+        1
+      ],
+      "weight": 2
+    }
+  ]
+}
