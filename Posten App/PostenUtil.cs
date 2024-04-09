@@ -4,13 +4,15 @@ namespace Posten_App;
 
 public class PostenUtil
 {
-    // Returns file path of the json file. 
+    // Returns file path of the json file.
+    // Used in DeserializeJsonFile()
     public static string GetFilePath()
     {
         string filepath = Directory.GetCurrentDirectory();
         filepath = Directory.GetParent(filepath).FullName;
         filepath = Directory.GetParent(filepath).FullName;
         filepath = Directory.GetParent(filepath).FullName;
+        filepath = Path.Combine(filepath, "Jsonfiles");
         filepath = Path.Combine(filepath, "items.json");
         return filepath;
     }

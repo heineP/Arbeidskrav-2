@@ -1,6 +1,4 @@
-﻿
-
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Posten_App;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
