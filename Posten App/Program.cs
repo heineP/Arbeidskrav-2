@@ -1,11 +1,15 @@
 ﻿
 
+using Newtonsoft.Json;
+using Posten_App;
+using JsonSerializer = System.Text.Json.JsonSerializer;
+
 Console.WriteLine("BOBO");
 
-string filepath = Directory.GetCurrentDirectory();
-filepath = Directory.GetParent(filepath).FullName;
-filepath = Directory.GetParent(filepath).FullName;
-filepath = Directory.GetParent(filepath).FullName;
-string FILEPATH = Path.Combine(filepath, "items.json");
+OrdersFromJsonFile orders = PostenUtil.DeserializeJsonFile();
+Console.WriteLine(orders.packages[0].dimensions[1]);
 
-Console.WriteLine(FILEPATH);
+
+
+
+

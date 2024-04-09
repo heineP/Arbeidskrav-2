@@ -2,7 +2,7 @@ namespace Posten_App;
 
 public class Database
 {
-    // OrdersUnit
+    // OrdersFromJSONfile
     public string info;
     // public Package[] packages;
     
