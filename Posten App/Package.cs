@@ -7,6 +7,7 @@ public class Package
     public double weight;
     public string packing;
     public double combinedWeight;
+    public string posting;
 
     
     // Lage best packing option based on weight and dimensions
@@ -24,11 +25,9 @@ public class Package
             return $"boblekonvolutt 27x36cm";
         else if (dimensions[0] < 350 && dimensions[1] < 470 && dimensions[2] < 20 && weight < 2000)
             return $"boblekonvolutt 35x47cm";
-        
         // Checking if norgespakke is suitable
         else if (dimensions[0] < 350 && dimensions[1] < 250 && dimensions[2] < 120 && weight < 5000)
             return $"Eske Norgespakke";
-        
         else if (dimensions[0] < 240 && dimensions[1] < 159 && dimensions[2] < 60)
             return $"Eske Mini";
         else if (dimensions[0] < 332 && dimensions[1] < 246 && dimensions[2] < 65)
@@ -37,10 +36,11 @@ public class Package
             return $"Eske Stor";
         else
         {
-            return $"{description} is too large";
+            return $"{description} is too large or heavy for packaging";
         }
     }
 
+    // Sets packing choice
     public void SetPackingChoice()
     {
         packing = GetBestPackingOption();
@@ -67,7 +67,6 @@ public class Package
             case "boblekonvolutt 35x47cm":
                 combinedWeight = weight;
                 break;
-            
             case "Eske Norgespakke":
                 combinedWeight = weight + 191;
                 break;
@@ -81,5 +80,30 @@ public class Package
                 combinedWeight = weight + 359;
                 break;
         }
+    }
+    
+    // Finds appropriate posting option
+    public string GetPostingOption()
+    {
+        if (weight >= 350 && dimensions[0] <= 350 && dimensions[1] <= 250 && dimensions[2] <= 70) 
+            return "Lite Brev";
+        else if (weight >= 350 && weight <= 2000 && dimensions[0] <= 60 && dimensions[1] <= 60 && dimensions[2] <= 60 
+                 && (dimensions[0] + dimensions[1] + dimensions[2]) <= 900)
+            return "Stort Brev";
+        else if (weight >= 350 && weight <= 5000 && dimensions[0] <= 350 && dimensions[1] <= 250 &&
+                 dimensions[2] <= 120)
+            return "Norgespakke Liten";
+        else if (weight >= 2000 && weight <= 35000 && dimensions[0] >= 350 && dimensions[1] >= 250 &&
+                 dimensions[2] >= 120 && dimensions[0] <= 1200 && dimensions[1] <= 600 && dimensions[2] <= 600)
+            return "NorgesPakke Stor";
+        else
+        {
+            return $"{description} is too large or heavy for posting";
+        }
+    }
+    // Sets posting choice
+    public void SetPostingChoice()
+    {
+        posting = GetPostingOption();
     }
 }
