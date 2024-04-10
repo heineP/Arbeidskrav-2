@@ -64,7 +64,7 @@ public class PostenUtil
 
     public static void WriteInfoToTxt(List<Package> packages)
     {
-        using (StreamWriter sw = new StreamWriter("Results.txt"))
+        using (StreamWriter sw = new StreamWriter(GetTxtFilePath()))
         {
             foreach (Package package in packages)
             {
