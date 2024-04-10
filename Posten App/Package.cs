@@ -6,6 +6,7 @@ public class Package
     public double[] dimensions = new double[3];
     public double weight;
     public string packing;
+    public double combinedWeight;
 
     
     // Lage best packing option based on weight and dimensions
@@ -43,5 +44,42 @@ public class Package
     public void SetPackingChoice()
     {
         packing = GetBestPackingOption();
+    }
+
+    
+    // Method which sets combined weight to weight of the item + weight of packaging
+    public void SetCombinedWeight()
+    {
+        switch (packing)
+        {
+            case "boblekonvolutt 11x16cm":
+                combinedWeight = weight;
+                break;
+            case "boblekonvolutt 15x21cm":
+                combinedWeight = weight;
+                break;
+            case "boblekonvolutt 18x26cm":
+                combinedWeight = weight;
+                break;
+            case "boblekonvolutt 27x36cm":
+                combinedWeight = weight;
+                break;
+            case "boblekonvolutt 35x47cm":
+                combinedWeight = weight;
+                break;
+            
+            case "Eske Norgespakke":
+                combinedWeight = weight + 191;
+                break;
+            case "Eske Mini":
+                combinedWeight = weight + 67;
+                break;
+            case "Eske Liten":
+                combinedWeight = weight + 125.5;
+                break;
+            case "Eske Stor":
+                combinedWeight = weight + 359;
+                break;
+        }
     }
 }
