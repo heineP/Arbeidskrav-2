@@ -6,7 +6,7 @@ public class PostenUtil
 {
     // Returns file path of the json file.
     // Used in DeserializeJsonFile()
-    public static string GetFilePath()
+    public static string GetJsonFilePath()
     {
         string filepath = Directory.GetCurrentDirectory();
         filepath = Directory.GetParent(filepath).FullName;
@@ -16,11 +16,21 @@ public class PostenUtil
         filepath = Path.Combine(filepath, "items.json");
         return filepath;
     }
+    
+    public static string GetTxtFilePath()
+    {
+        string filepath = Directory.GetCurrentDirectory();
+        filepath = Directory.GetParent(filepath).FullName;
+        filepath = Directory.GetParent(filepath).FullName;
+        filepath = Directory.GetParent(filepath).FullName;
+        filepath = Path.Combine(filepath, "Results.txt");
+        return filepath;
+    }
     // Deserializes Json file. Returns instance of OrdersFromJsonFile.cs
     // which also contains instances of Package.cs
     public static OrdersFromJsonFile DeserializeJsonFile()
     {
-        string jsonString = File.ReadAllText(PostenUtil.GetFilePath());
+        string jsonString = File.ReadAllText(PostenUtil.GetJsonFilePath());
         return JsonConvert.DeserializeObject<OrdersFromJsonFile>(jsonString);
     }
     
@@ -49,6 +59,22 @@ public class PostenUtil
             Console.WriteLine($"Best posting option: {package.posting}");
             Console.WriteLine($"Posting price: {package.postingPrice} kr");
             Console.WriteLine($"Packaging price: {package.packagingPrice} kr\n");
+        }
+    }
+
+    public static void WriteInfoToTxt(List<Package> packages)
+    {
+        using (StreamWriter sw = new StreamWriter("Results.txt"))
+        {
+            foreach (Package package in packages)
+            {
+                sw.WriteLine($"ITEM: {package.description}");
+                sw.WriteLine($"Best packing option: {package.packing}");
+                sw.WriteLine($"Weight after packing: {package.combinedWeight} gram");
+                sw.WriteLine($"Best posting option: {package.posting}");
+                sw.WriteLine($"Posting price: {package.postingPrice} kr");
+                sw.WriteLine($"Packaging price: {package.packagingPrice} kr\n");
+            }
         }
     }
 }

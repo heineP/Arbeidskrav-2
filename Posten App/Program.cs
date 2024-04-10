@@ -12,6 +12,9 @@ PostenUtil.CalculateOptimalPackageInfo(orders.packages);
 //Prints the generated info to console
 PostenUtil.PrintInfoToConsole(orders.packages);
 
+//Writes info to txt file Results.txt
+PostenUtil.WriteInfoToTxt(orders.packages);
+
 
 
 
