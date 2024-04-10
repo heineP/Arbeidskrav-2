@@ -119,7 +119,7 @@ public class Package
     // Finds appropriate posting option
     public string GetPostingOption()
     {
-        if (weight >= 350 && dimensions[0] <= 350 && dimensions[1] <= 250 && dimensions[2] <= 70) 
+        if (weight <= 350 && dimensions[0] <= 350 && dimensions[1] <= 250 && dimensions[2] <= 70) 
             return "Lite Brev";
         else if (weight >= 350 && weight <= 2000 && dimensions[0] <= 60 && dimensions[1] <= 60 && dimensions[2] <= 60 
                  && (dimensions[0] + dimensions[1] + dimensions[2]) <= 900)
