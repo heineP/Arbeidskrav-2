@@ -5,6 +5,8 @@ public class Package
     public string description;
     public double[] dimensions = new double[3];
     public double weight;
+    public string packing;
+
     
     // Lage best packing option based on weight and dimensions
     // Dim0 = Length, Dim1 = Width, Dim2 = Height
@@ -36,5 +38,10 @@ public class Package
         {
             return $"{description} is too large";
         }
+    }
+
+    public void SetPackingChoice()
+    {
+        packing = GetBestPackingOption();
     }
 }
