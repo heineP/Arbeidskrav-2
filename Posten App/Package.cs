@@ -8,7 +8,8 @@ public class Package
     public string packing;
     public double combinedWeight;
     public string posting;
-
+    public double packagingPrice;
+    public double postingPrice;
     
     // Lage best packing option based on weight and dimensions
     // Dim0 = Length, Dim1 = Width, Dim2 = Height
@@ -78,6 +79,40 @@ public class Package
                 break;
             case "Eske Stor":
                 combinedWeight = weight + 359;
+                break;
+        }
+    }
+    // Sets packaging price
+    public void SetPackagingPrice()
+    {
+        switch (packing)
+        {
+            case "boblekonvolutt 11x16cm":
+                packagingPrice = 2.99;
+                break;
+            case "boblekonvolutt 15x21cm":
+                packagingPrice = 2.99;
+                break;
+            case "boblekonvolutt 18x26cm":
+                packagingPrice = 5.90;
+                break;
+            case "boblekonvolutt 27x36cm":
+                packagingPrice = 8.50;
+                break;
+            case "boblekonvolutt 35x47cm":
+                packagingPrice = 15;
+                break;
+            case "Eske Norgespakke":
+                packagingPrice = 24;
+                break;
+            case "Eske Mini":
+                packagingPrice = 18;
+                break;
+            case "Eske Liten":
+                packagingPrice = 20;
+                break;
+            case "Eske Stor":
+                packagingPrice = 27;
                 break;
         }
     }
