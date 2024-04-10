@@ -45,10 +45,10 @@ public class PostenUtil
         {
             Console.WriteLine($"ITEM: {package.description}");
             Console.WriteLine($"Best packing option: {package.packing}");
-            Console.WriteLine($"Weight after packing: {package.combinedWeight}");
+            Console.WriteLine($"Weight after packing: {package.combinedWeight} gram");
             Console.WriteLine($"Best posting option: {package.posting}");
-            Console.WriteLine($"Posting price: {package.postingPrice}");
-            Console.WriteLine($"Packaging price: {package.packagingPrice}\n");
+            Console.WriteLine($"Posting price: {package.postingPrice} kr");
+            Console.WriteLine($"Packaging price: {package.packagingPrice} kr\n");
         }
     }
 }
