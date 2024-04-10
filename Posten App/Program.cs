@@ -2,13 +2,17 @@
 using Posten_App;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
-Console.WriteLine("BOBO");
 
+//Loads info from JSON file into OrdersFromJsonFile
 OrdersFromJsonFile orders = PostenUtil.DeserializeJsonFile();
 
-// TEST -- printing second dimension from first package
-Console.WriteLine(orders.packages[0].dimensions[1]);
-Console.WriteLine(orders.NumberOfPackages());
+//Calculates and updates the best Packing, Posting and Pricing options for each package
+PostenUtil.CalculateOptimalPackageInfo(orders.packages);
+
+//Prints the generated info to console
+PostenUtil.PrintInfoToConsole(orders.packages);
+
+
 
 
 

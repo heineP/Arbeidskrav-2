@@ -23,4 +23,32 @@ public class PostenUtil
         string jsonString = File.ReadAllText(PostenUtil.GetFilePath());
         return JsonConvert.DeserializeObject<OrdersFromJsonFile>(jsonString);
     }
+    
+    // Method to set all the fields in the package objects
+    public static void CalculateOptimalPackageInfo(List<Package> packages)
+    {
+        foreach (Package package in packages)
+        {
+            package.SetPackingChoice();
+            package.SetCombinedWeight();
+            package.SetPostingChoice();
+            package.SetPackagingPrice();
+            package.SetPostingPrice();
+        }
+    }
+    
+    // Method used to print all the info to console.
+    // Only to be used AFTER CalculateOptimalPackageInfo is used
+    public static void PrintInfoToConsole(List<Package> packages)
+    {
+        foreach (Package package in packages)
+        {
+            Console.WriteLine($"ITEM: {package.description}");
+            Console.WriteLine($"Best packing option: {package.packing}");
+            Console.WriteLine($"Weight after packing: {package.combinedWeight}");
+            Console.WriteLine($"Best posting option: {package.posting}");
+            Console.WriteLine($"Posting price: {package.postingPrice}");
+            Console.WriteLine($"Packaging price: {package.packagingPrice}\n");
+        }
+    }
 }
