@@ -46,7 +46,6 @@ public class Package
     {
         packing = GetBestPackingOption();
     }
-
     
     // Method which sets combined weight to weight of the item + weight of packaging
     public void SetCombinedWeight()
@@ -130,7 +129,7 @@ public class Package
             return "Norgespakke Liten";
         else if (weight >= 2000 && weight <= 35000 && dimensions[0] >= 350 && dimensions[1] >= 250 &&
                  dimensions[2] >= 120 && dimensions[0] <= 1200 && dimensions[1] <= 600 && dimensions[2] <= 600)
-            return "NorgesPakke Stor";
+            return "Norgespakke Stor";
         else
         {
             return $"{description} is too large or heavy for posting";
@@ -140,5 +139,94 @@ public class Package
     public void SetPostingChoice()
     {
         posting = GetPostingOption();
+    }
+
+    // Returns correct posting price
+    public double GetPostingPrice()
+    {
+        if (posting == "Norgespakke Liten")
+            return 73;
+        else if (posting == "Norgespakke Stor")
+        {
+            if (weight <= 10000)
+                return 135;
+            else if (weight <= 25000)
+                return 240;
+            else
+                return 314;
+        }
+        else if (posting == "Lite Brev")
+        {
+            if (dimensions[2] < 20) // Letters under 2cm
+            {
+                if (weight <= 20)
+                    return 23;
+                else if (weight <= 50)
+                    return 29;
+                else if (weight <= 100)
+                    return 36;
+                else
+                {
+                    return 55;
+                }
+            }
+            else // Letters over 2cm
+            {
+                return 57;
+            }
+        }
+        else if (posting == "Stort Brev")
+        {
+            if (dimensions[2] <= 20) // Letters under 2cm
+            {
+                if (weight <= 20)
+                    return 23;
+                else if (weight <= 50)
+                    return 29;
+                else if (weight <= 100)
+                    return 36;
+                else if (weight <= 350)
+                    return 55;
+                else if (weight <= 1000)
+                    return 90;
+                else
+                {
+                    return 125;
+                }
+            }
+            else if (dimensions[2] <= 70) // Letters under 7cm
+            {
+                if (weight <= 350)
+                    return 57;
+                else if (weight <= 1000)
+                    return 105;
+                else
+                {
+                    return 135;
+                }
+            }
+            else // Letters over 7cm
+            {
+                if (weight <= 350)
+                    return 90;
+                else if (weight <= 1000)
+                    return 140;
+                else
+                {
+                    return 175;
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid or missing posting field");
+            return 0;
+        }
+    }
+    
+    // Sets posting price
+    public void SetPostingPrice()
+    {
+        postingPrice = GetPostingPrice();
     }
 }
