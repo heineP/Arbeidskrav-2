@@ -12,3 +12,31 @@ Best posting option: Lite Brev
 Posting price: 23 kr
 Packaging price: 2.99 kr
 
+ITEM: Surf magazine
+Best packing option: boblekonvolutt 27x36cm
+Weight after packing: 120 gram
+Best posting option: Surf magazine is too large or heavy for posting
+Posting price: 0 kr
+Packaging price: 8.5 kr
+
+ITEM: Algorithms Textbook
+Best packing option: Eske Stor
+Weight after packing: 1009 gram
+Best posting option: Norgespakke Liten
+Posting price: 73 kr
+Packaging price: 27 kr
+
+ITEM: Folded fishing rod
+Best packing option: Folded fishing rod is too large or heavy for packaging
+Weight after packing: 0 gram
+Best posting option: Stort Brev
+Posting price: 125 kr
+Packaging price: 0 kr
+
+ITEM: Playsation 5
+Best packing option: Eske Stor
+Weight after packing: 4859 gram
+Best posting option: Norgespakke Liten
+Posting price: 73 kr
+Packaging price: 27 kr
+

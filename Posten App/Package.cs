@@ -10,6 +10,7 @@ public class Package
     public string posting;
     public double packagingPrice;
     public double postingPrice;
+    public double[] newDimensions = new double[3];
     
     // Lage best packing option based on weight and dimensions
     // Dim0 = Length, Dim1 = Width, Dim2 = Height
@@ -48,36 +49,45 @@ public class Package
     }
     
     // Method which sets combined weight to weight of the item + weight of packaging
-    public void SetCombinedWeight()
+    public void SetCombinedWeightAndNewDimensions()
     {
         switch (packing)
         {
             case "boblekonvolutt 11x16cm":
                 combinedWeight = weight;
+                newDimensions = [110, 160, 2];
                 break;
             case "boblekonvolutt 15x21cm":
                 combinedWeight = weight;
+                newDimensions = [150, 210, 2];
                 break;
             case "boblekonvolutt 18x26cm":
                 combinedWeight = weight;
+                newDimensions = [180, 260, 2];
                 break;
             case "boblekonvolutt 27x36cm":
                 combinedWeight = weight;
+                newDimensions = [270, 360, 2];
                 break;
             case "boblekonvolutt 35x47cm":
                 combinedWeight = weight;
+                newDimensions = [350, 470, 2];
                 break;
             case "Eske Norgespakke":
                 combinedWeight = weight + 191;
+                newDimensions = [350, 250, 120];
                 break;
             case "Eske Mini":
                 combinedWeight = weight + 67;
+                newDimensions = [240, 159, 60];
                 break;
             case "Eske Liten":
                 combinedWeight = weight + 125.5;
+                newDimensions = [332, 246, 65];
                 break;
             case "Eske Stor":
                 combinedWeight = weight + 359;
+                newDimensions = [350, 250, 120];
                 break;
         }
     }
@@ -119,16 +129,16 @@ public class Package
     // Finds appropriate posting option
     public string GetPostingOption()
     {
-        if (weight <= 350 && dimensions[0] <= 350 && dimensions[1] <= 250 && dimensions[2] <= 70) 
+        if (weight <= 350 && newDimensions[0] <= 350 && newDimensions[1] <= 250 && newDimensions[2] <= 70) 
             return "Lite Brev";
-        else if (weight >= 350 && weight <= 2000 && dimensions[0] <= 60 && dimensions[1] <= 60 && dimensions[2] <= 60 
-                 && (dimensions[0] + dimensions[1] + dimensions[2]) <= 900)
+        else if (weight >= 350 && weight <= 2000 && newDimensions[0] <= 60 && newDimensions[1] <= 60 && newDimensions[2] <= 60 
+                 && (newDimensions[0] + newDimensions[1] + newDimensions[2]) <= 900)
             return "Stort Brev";
-        else if (weight >= 350 && weight <= 5000 && dimensions[0] <= 350 && dimensions[1] <= 250 &&
-                 dimensions[2] <= 120)
+        else if (weight >= 350 && weight <= 5000 && newDimensions[0] <= 350 && newDimensions[1] <= 250 &&
+                 newDimensions[2] <= 120)
             return "Norgespakke Liten";
-        else if (weight >= 2000 && weight <= 35000 && dimensions[0] >= 350 && dimensions[1] >= 250 &&
-                 dimensions[2] >= 120 && dimensions[0] <= 1200 && dimensions[1] <= 600 && dimensions[2] <= 600)
+        else if (weight >= 2000 && weight <= 35000 && newDimensions[0] >= 350 && newDimensions[1] >= 250 &&
+                 newDimensions[2] >= 120 && newDimensions[0] <= 1200 && newDimensions[1] <= 600 && newDimensions[2] <= 600)
             return "Norgespakke Stor";
         else
         {
@@ -157,7 +167,7 @@ public class Package
         }
         else if (posting == "Lite Brev")
         {
-            if (dimensions[2] < 20) // Letters under 2cm
+            if (newDimensions[2] <= 20) // Letters under 2cm
             {
                 if (weight <= 20)
                     return 23;
@@ -177,7 +187,7 @@ public class Package
         }
         else if (posting == "Stort Brev")
         {
-            if (dimensions[2] <= 20) // Letters under 2cm
+            if (newDimensions[2] <= 20) // Letters under 2cm
             {
                 if (weight <= 20)
                     return 23;
@@ -194,7 +204,7 @@ public class Package
                     return 125;
                 }
             }
-            else if (dimensions[2] <= 70) // Letters under 7cm
+            else if (newDimensions[2] <= 70) // Letters under 7cm
             {
                 if (weight <= 350)
                     return 57;

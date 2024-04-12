@@ -40,7 +40,7 @@ public class PostenUtil
         foreach (Package package in packages)
         {
             package.SetPackingChoice();
-            package.SetCombinedWeight();
+            package.SetCombinedWeightAndNewDimensions();
             package.SetPostingChoice();
             package.SetPackagingPrice();
             package.SetPostingPrice();
