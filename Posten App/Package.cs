@@ -233,7 +233,6 @@ public class Package
         }
         else
         {
-            Console.WriteLine($"Invalid or missing posting field in objekt: {description}");
             return 0;
         }
     }

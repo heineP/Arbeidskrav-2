@@ -5,6 +5,7 @@ Status: Finished/Functional
 - Changes can be made to create a new text document when running the program, rather than overwriting the old results.
 - Can maybe make the program more robust by editing privacy of a bunch of methods/fields.
 - Can maybe make the program more robust by only allowing method CalculateOptimalPackageInfo() to be run 1 time per instance.
+- Can make the different package options into objects, and change weight and dimensions based on those objects, to simplify the program.
 
 How to use:
 1. Place Json file you want calculated in "Posten App/Posten App/Jsonfiles".
@@ -16,3 +17,9 @@ Task interpretation:
 - In spec 2: "Eske Norgespakke" will be chosen over all "Posten Box" types, if possible.
 
 Authors: Sondre Pettersen & Heine Pettersen
+--------------------------------------------------------------------------------------------------------
+
+Misc notes:
+As far as we know, the code is working as intended, but items such as Surf Magazine from the Json examples that are 
+too big to be posted in "Brev under 350g", but too light to be posted with "Brev fra 350-2kg" have no posting option.
+Don't know if this is intended or we missinterpreted the assignment specifications.
