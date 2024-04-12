@@ -89,6 +89,10 @@ public class Package
                 combinedWeight = weight + 359;
                 newDimensions = [350, 250, 120];
                 break;
+            default:
+                combinedWeight = weight;
+                newDimensions = dimensions;
+                break;
         }
     }
     // Sets packaging price
@@ -229,7 +233,7 @@ public class Package
         }
         else
         {
-            Console.WriteLine("Invalid or missing posting field");
+            Console.WriteLine($"Invalid or missing posting field in objekt: {description}");
             return 0;
         }
     }

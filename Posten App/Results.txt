@@ -28,9 +28,9 @@ Packaging price: 27 kr
 
 ITEM: Folded fishing rod
 Best packing option: Folded fishing rod is too large or heavy for packaging
-Weight after packing: 0 gram
-Best posting option: Stort Brev
-Posting price: 125 kr
+Weight after packing: 1500 gram
+Best posting option: Folded fishing rod is too large or heavy for posting
+Posting price: 0 kr
 Packaging price: 0 kr
 
 ITEM: Playsation 5
